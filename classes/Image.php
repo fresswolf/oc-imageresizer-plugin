@@ -134,15 +134,15 @@ class Image
         $filePath = $this->file->getStorageDirectory() . $this->getPartitionDirectory() . $this->thumbFilename;
 
         if ($public === true) {
-            return url('/storage/app/' . $filePath);
+            return url('/storage/app/uploads/' . $filePath);
         }
 
-        return storage_path('app/' . $filePath);
+        return storage_path('app/uploads/' . $filePath);
     }
 
     protected function deleteTempFile()
     {
-        $path = storage_path('app/' . $this->file->getStorageDirectory() . $this->getPartitionDirectory() . $this->file->disk_name);
+        $path = storage_path('app/uploads/' . $this->file->getStorageDirectory() . $this->getPartitionDirectory() . $this->file->disk_name);
         if (file_exists($path)) {
             unlink($path);
         }
